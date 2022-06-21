@@ -1,0 +1,43 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+    padding: 0 2rem;
+}
+
+nav a{
+    margin: 0 2rem;
+    text-decoration: none;
+    color: black;
+}
+
+
+nav a:hover{
+    border-bottom: black solid 2px;
+}
+
+img{
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+}
+
+button{
+    background-color:#fff;
+    color:violet;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+button:hover{
+    background-color: violet;
+    color: #fff;
+}
