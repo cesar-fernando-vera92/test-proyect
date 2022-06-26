@@ -1,0 +1,55 @@
+.card-img{
+    margin: 10;
+    height: 160px;
+    width: 210px;
+}
+
+.card {
+    display: block;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+    font-family: arial;
+  }
+  
+.price {
+    color: grey;
+    font-size: 22px;
+  }
+
+  .card-description{
+    padding: 10px;
+    margin: 5px;
+    color: black;
+
+  }
+
+.card .card-btn-agregar{
+    background-color: rgb(6, 216, 93);
+    border: none;
+    outline: 0;
+    color: white; 
+    margin: 5px;
+    text-align: center;
+    cursor: pointer;
+    width: 20%;
+    font-size: 18px;
+}
+.card .card-btn-quitar{
+    background-color: rgb(216, 6, 6);
+    border: none;
+    outline: 0;
+    color: white; 
+    margin: 5px;
+    text-align: center;
+    cursor: pointer;
+    width: 20%;
+    font-size: 18px;
+}
+
+
+.card-btn:hover{
+    opacity: 0.7;
+}
+  

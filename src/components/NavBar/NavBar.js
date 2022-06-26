@@ -1,7 +1,7 @@
 import React from "react";
 import logo from "../../assets/images/logo-tienda.jpg";
-import CardWidget from "../CardWidget";
-import "./style.css"
+import CardWidget from "../CardWidget/CardWidget";
+import "./NavBar.css"
 
 
 const NavBar = () => {

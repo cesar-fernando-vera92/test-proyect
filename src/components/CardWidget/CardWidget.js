@@ -1,6 +1,6 @@
 import React from 'react'
 import imagenCarrito from '../../assets/images/carrito.png'
-import './style.css'
+import './CardWidget.css'
 
 const CardWidget = () => {
   return (
