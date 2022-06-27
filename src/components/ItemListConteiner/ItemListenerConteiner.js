@@ -1,15 +1,27 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import './ItemListenerConteiner.css'
-import ItemCount from '../ItemCount/ItemCount'
+import ItemList from '../ItemList/ItemList'
+import { getData } from '../../mocks/fackeApi'
 
 const ItemListContainer = () => {
+  const [productList, setProductList] = useState([])
+  const [landing, setLanding] = useState(true) 
+
+  useEffect(()=>{
+    getData
+    .then((res)=> setProductList(res))
+    .catch((error)=> console.log(error))
+    .finally(()=>setLanding(false))
+  },[])
+
+
   return (
     <>
-        <div className='products'>
-          <ItemCount name='A01 Core' stock={9}/>
-          <ItemCount name='A02' stock={16}/>
-          <ItemCount name='A32 ' stock={2}/>
-        </div>   
+        <div className='products'>   
+          <div className='list-products'>
+           {landing ?<div className='loader'> </div> : <ItemList productList={productList}/> } 
+          </div>             
+      </div>   
     </>
   )
 }
