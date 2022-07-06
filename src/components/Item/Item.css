@@ -1,6 +1,7 @@
 .card-img{
+    max-height: 300px;
+    max-height: 300px;
     margin: 10;
-    max-width: 300px;
     border-radius: 10%;
 }
 

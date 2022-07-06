@@ -1,19 +1,33 @@
 import React, { useState, useEffect } from 'react'
 import './ItemListenerConteiner.css'
 import ItemList from '../ItemList/ItemList'
-import { getData } from '../../mocks/fackeApi'
 
 const ItemListContainer = () => {
   const [productList, setProductList] = useState([])
-  const [landing, setLanding] = useState(true) 
+  const [landing, setLanding] = useState(true)
+  
+  
+  const categoryId = 'jewelery';
 
-  useEffect(()=>{
-    getData
-    .then((res)=> setProductList(res))
-    .catch((error)=> console.log(error))
-    .finally(()=>setLanding(false))
-  },[])
+    useEffect(() => {
+      setLanding(true);
 
+        const URL = categoryId
+            ? `https://fakestoreapi.com/products/category/${categoryId}`
+            : 'https://fakestoreapi.com/products';
+
+  
+
+        fetch(URL)
+            .then((res) => res.json())
+            .then((json) => setProductList(json))
+            .finally(() => {
+              setLanding(false);
+            });
+    }, [categoryId]);
+
+
+  
 
   return (
     <>
@@ -29,4 +43,8 @@ const ItemListContainer = () => {
 export default ItemListContainer
 
 
+   
+  
+
+  
  
