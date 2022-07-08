@@ -1,25 +1,92 @@
 
-const product = 
-[
-    {'id': 1,'stock': 6,'title': 'Roles Datejust','price': 10.101,'image': 'https://cdn4.chrono24.com/images/topmodels/2846-alz5vjoi11mxlc54imf27mlj-Original.png?auto=compress&amp;h=305','category': 'rolex'},
-    {'id': 2,'stock': 7,'title': 'OMEGA Speedmaster','price': 10.154,'image': 'https://cdn4.chrono24.com/images/topmodels/2875-7wlcl6ogfoc0qxg22ox6up9m-Original.png?auto=compress&amp;h=305','category': 'omega'},
-    {'id': 3,'stock': 10,'title': 'AUDEMARS PIGUET','price': 7.545,'image': 'https://cdn4.chrono24.com/images/topmodels/1177-wugpfdlkkz5ie2od4y1w8rlm-Original.png?auto=compress&amp;h=305','category': 'audemars'},
-    {'id': 4,'stock': 18,'title': 'HUBLOT Big Bang','price': 9.924,'image': 'https://cdn4.chrono24.com/images/topmodels/1065-ae2seivfjwbgqxgobd7rimxu-Original.png?auto=compress&amp;h=305','category': 'hublot'},
-    {'id': 5,'stock': 3,'title': 'ROLEX Day-Date','price': 10.545,'image': 'https://cdn4.chrono24.com/images/topmodels/48-coj40rpfx8fwxs9h0nl1l5z5-Original.png?auto=compress&amp;h=305','category': 'rolexDay'},
-    {'id': 6,'stock': 7,'title': 'TAG HEUER Carrera Calibre','price': 8.455,'image': 'https://cdn4.chrono24.com/images/topmodels/1023-knl4kmo66jmse324vzq1rit9-Original.png?auto=compress&amp;h=305','category': 'tag'},
-    {'id': 7,'stock': 5,'title': 'OMEGA Speedmaster','price': 10.254,'image': 'https://cdn4.chrono24.com/images/topmodels/2875-7wlcl6ogfoc0qxg22ox6up9m-Original.png?auto=compress&amp;h=305','category': 'omega'},
-    {'id': 8,'stock': 2,'title': 'AUDEMARS PIGUET','price': 7.514,'image': 'https://cdn4.chrono24.com/images/topmodels/1177-wugpfdlkkz5ie2od4y1w8rlm-Original.png?auto=compress&amp;h=305','category': 'audemars'},
-  ]
+export const productos = [
+  {
+      id: 1,
+      title: 'Remera',
+      price: 200,
+      stock: 4,
 
-  export const getData = new Promise((res, rej)=>{
-    
-   let condicion = true
-   setTimeout(()=>{
-     if(condicion){
-       res(product)
-     }else{
-       rej('algo salio mal')
-     }
-   },3000)
- })
- 
+      image: 'https://res.cloudinary.com/ericwaje/image/upload/v1619372707/remera3_vc9mqa.jpg',
+      category: 'remeras',
+      description:
+          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt iusto magni quaerat nisi quisquam? Error, earum aspernatur tenetur sint cum in quibusdam eos quae velit ratione maxime! Error, earum repellendus.',
+  },
+  {
+      id: 2,
+      title: 'Remera2',
+      price: 222,
+      stock: 10,
+
+      image: 'https://res.cloudinary.com/ericwaje/image/upload/v1619372707/remera2_pe94nf.jpg',
+      category: 'remeras',
+      description:
+          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt iusto magni quaerat nisi quisquam? Error, earum aspernatur tenetur sint cum in quibusdam eos quae velit ratione maxime! Error, earum repellendus.',
+  },
+  {
+      id: 3,
+      title: 'Camisa',
+      price: 300,
+      stock: 4,
+
+      image: 'https://res.cloudinary.com/ericwaje/image/upload/v1619372706/camisa3_xyt1ay.jpg',
+      category: 'camisas',
+      description:
+          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt iusto magni quaerat nisi quisquam? Error, earum aspernatur tenetur sint cum in quibusdam eos quae velit ratione maxime! Error, earum repellendus.',
+  },
+  {
+      id: 4,
+      title: 'Camisa2',
+      price: 333,
+      stock: 4,
+
+      image: 'https://res.cloudinary.com/ericwaje/image/upload/v1619372706/camisa4_ehruek.jpg',
+      category: 'camisas',
+      description:
+          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt iusto magni quaerat nisi quisquam? Error, earum aspernatur tenetur sint cum in quibusdam eos quae velit ratione maxime! Error, earum repellendus.',
+  },
+
+  {
+      id: 5,
+      title: 'Gorra',
+      price: 80,
+      stock: 20,
+
+      image: 'https://res.cloudinary.com/ericwaje/image/upload/v1619372706/gorra1C_r0cz4b.jpg',
+      category: 'gorras',
+      description:
+          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt iusto magni quaerat nisi quisquam? Error, earum aspernatur tenetur sint cum in quibusdam eos quae velit ratione maxime! Error, earum repellendus.',
+  },
+  {
+      id: 6,
+      title: 'Gorra2',
+      price: 88,
+      stock: 5,
+
+      image: 'https://res.cloudinary.com/ericwaje/image/upload/v1619372706/gorra4C_nyvjj6.jpg',
+      category: 'gorras',
+      description:
+          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt iusto magni quaerat nisi quisquam? Error, earum aspernatur tenetur sint cum in quibusdam eos quae velit ratione maxime! Error, earum repellendus.',
+  },
+];
+
+export const getProds = (categoryId) => {
+  return new Promise((resolve, reject) => {
+      const productosFiltrados = productos.filter(
+          (prod) => prod.category === categoryId
+      );
+      setTimeout(() => {
+          categoryId ? resolve(productosFiltrados) : resolve(productos);
+      }, 1000);
+  });
+};
+
+export const getProd = (id) => {
+  return new Promise((resolve, reject) => {
+      const productoEncontrado = productos.find(
+          (prod) => prod.id === Number(id)
+      );
+      setTimeout(() => {
+          resolve(productoEncontrado);
+      }, 1000);
+  });
+};
