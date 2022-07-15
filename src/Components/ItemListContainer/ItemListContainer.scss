@@ -1,0 +1,12 @@
+.products {
+    width: 100%;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    background: var(--secondColor);
+    display: flex;
+    border-radius: var(--borderRadius);
+    box-shadow: var(--boxShadow);
+    @media (max-width: 768px){
+        flex-direction: column;
+    }
+}

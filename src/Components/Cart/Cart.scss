@@ -1,0 +1,85 @@
+.main-cart {
+    width: 100%;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: var(--borderRadius);
+    box-shadow: var(--boxShadow);
+    flex: 1;
+    background: var(--secondColor);
+    @media (max-width: 480px) {
+        padding: 1rem;
+    }
+    .title-cart {
+        margin: 1rem 0 2rem 0;
+        text-align: center;
+    }
+    .container-mainCart{
+        display: flex;
+        justify-content: space-evenly;
+        @media (max-width: 480px) {
+            flex-direction: column;
+        }
+        .body-prodCart {
+            width: 30rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            @media (max-width: 480px) {
+                width: 100%;
+            }
+            .img-prodCart {
+                width: 3rem;
+                border-radius: 10px;
+            }
+            .cantidad-prodCart {
+                min-width: 3rem;
+                .prod-cantidad {
+                    color: var(--mainColor);
+                    font-weight: 700;
+                    margin: 0 .3rem;
+                    font-size: 1.2rem;
+                }
+            }
+            .precio-prodCart {
+                min-width: 3rem;
+                .priceNum {
+                    color: deeppink;
+                    font-size: 1.2rem;
+                    margin: 0 .3rem;
+                    font-weight: 700;
+                    letter-spacing: .1rem;
+                }
+            }
+        }
+        .total-cart {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin: 1rem;
+            padding: 1rem;
+            .total-title {
+                margin: 1rem 0;
+            }
+        }
+    }
+}
+
+.emptyCart {
+    width: 100%;
+    margin-bottom: 2rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    border-radius: var(--borderRadius);
+    box-shadow: var(--boxShadow);
+    background: var(--secondColor);
+    .emptyCartImg {
+        width: 10rem;
+        opacity: .7;
+    }
+}

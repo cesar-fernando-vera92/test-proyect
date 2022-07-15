@@ -1,14 +1,13 @@
-import React from 'react'
-import Item from '../Item/Item'
-import './ItemList.css'
+import { Item } from "../Item/Item"
 
-const ItemList = ({ productList }) => {
-  return (
-    <div className='item'>
-        {productList.map((product)=> <Item key={product.id} product={product} /> )}
-        
-    </div>
-  )
+export const ItemList = ({ products }) => {
+
+    return (
+
+        <div className="cardGrid">
+            {products.map(el => <Item key={el.id} {...el} />)}
+        </div>
+
+    )
+
 }
-
-export default ItemList

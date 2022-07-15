@@ -1,22 +1,25 @@
-import React from "react";
-import logo from "../../assets/images/logo-tienda.jpg";
-import CardWidget from "../CardWidget/CardWidget";
-import "./NavBar.css"
+import { CarTWidget } from "../CartWidget/CartWidget"
+import { Link } from "react-router-dom";
+import logoLuvi from "../../assets/images/logo.png"
 
+export const NavBar = () => {
 
-const NavBar = () => {
-    return(
-        <div className="nav">
-        <img className="nav-logo" src={logo} alt="logo de tienda"/>
-        <h1> Mi Tienda OnLine </h1>
-        <div>
-            <a href="/" className="nav-item">Inicio </a>
-            <a href="/" className="nav-item">Productos </a>
-            <a href="/" className="nav-item">Contacto </a>
-            <a href="/" className="nav-item">Como comprar </a>
-        </div>
-            <CardWidget/>         
-        </div>       
+    
+    return (
+        <header className="header">
+            <Link to="/" className="logo">
+                <img src={logoLuvi} alt="logo tienda" />
+            </Link>
+
+            <nav className="navBar">
+                <Link to="/" className="headerLink">home</Link>
+                <Link to="/productos" className="headerLink">productos</Link>
+                <Link to="/nosotros" className="headerLink">nosotros</Link>
+                <Link to="/contacto" className="headerLink">contacto</Link>
+                <Link to="/" className="headerLink">como comprar</Link>
+            </nav>
+            <CarTWidget />
+        </header>
     )
+
 }
-export default NavBar;

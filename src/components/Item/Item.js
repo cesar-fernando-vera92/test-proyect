@@ -1,22 +1,23 @@
-import React from 'react'
-import { Link } from 'react-router-dom';
-import './Item.css'
+import { Link } from "react-router-dom";
+import crochet from "../../assets/images/crochet.png"
 
-const Item = ({ product }) => {
+export const Item = ({ id, nombre, img, precio }) => {
+
     return (
-        <div>
-            <div className="card">
-                <h1>{product.tittle}</h1>
-                <img className='card-img' src={product.image} alt={product.tittle} height="400" width="300" />
-                <p className="price">${product.price}</p>     
-                
-               
-        
+
+        <div className="card">
+            <img src={img} alt={nombre} className="cardImg" />
+            <div className="card-body">
+                <p className="card-price">${precio}</p>
+                <h3 className="card-title">{nombre}</h3>
             </div>
+            <Link to={`/detail/${id}`} className="btn-container">
+                <img src={crochet} alt="crochet" className="card-btn" />
+                <span className="verMas">VER MAS</span>
+                <img src={crochet} alt="crochet" className="card-btn" />
+            </Link>
         </div>
+
     )
+
 }
-
-export default Item
-
-

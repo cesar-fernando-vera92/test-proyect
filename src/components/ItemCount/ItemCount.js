@@ -1,27 +1,31 @@
-import React, { useState } from 'react';
+import { configBtns } from "./configBtns"
 
-const ItemCount = ({ initial, stock }) => {
-    const [count, setCount] = useState(initial);
+export const ItemCount = ({ min = 0, max, counter, setCounter }) => {
 
-    const add = () => {
-        stock !== count && setCount(count + 1);
-    };
+    const handleSumar = () => {
+        counter < max && setCounter(counter + 1)
+    }
 
-    const substract = () => {
-        initial !== count && setCount(count - 1);
-    };
+    const handleRestar = () => {
+        counter > min && setCounter(counter - 1)
+    }
+
+    const { configMinus, configAdd } = configBtns(counter, max, min, handleRestar, handleSumar)
+
     return (
-        <div className="count">
-            <div className="buttons">
-                <button onClick={add}>+</button>
-                <p>{count}</p>
-                <button onClick={substract}>-</button>
-            </div>
-            <div className="add-cart">
-                <button>Add to Cart!</button>
-            </div>
-        </div>
-    );
-};
 
-export default ItemCount;
+        <div className="itemCount">
+            <button {...configMinus}>
+                -
+            </button>
+
+            <span>{counter}</span>
+
+            <button {...configAdd}>
+                +
+            </button>
+        </div>
+
+    )
+
+}

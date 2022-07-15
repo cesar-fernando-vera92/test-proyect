@@ -1,0 +1,29 @@
+@import url('globals.scss');
+@import url('../Components/NavBar/NavBar.scss');
+@import url('../Components/CartWidget/CartWidget.scss');
+@import url('../Components/ItemListContainer/ItemListContainer.scss');
+@import url('../Components/ItemList/ItemList.scss');
+@import url('../Components/Item/Item.scss');
+@import url("../Components/Loading/Loading.scss");
+@import url("../Components/Nosotros/Nosotros.scss");
+@import url("../Components/Contacto/Contacto.scss");
+@import url("../Components/Filters/Filters.scss");
+@import url("../Components/ItemCount/ItemCount.scss");
+@import url("../Components/ItemDetail/ItemDetail.scss");
+@import url("../Components/Cart/Cart.scss");
+@import url("../Components/BtnMain/BtnMain.scss");
+@import url('https://fonts.googleapis.com/css2?family=Asap+Condensed&display=swap');
+
+body {
+    display: flex;
+    justify-content: center;
+    margin: 2rem;
+}
+
+#root {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

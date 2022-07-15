@@ -1,0 +1,13 @@
+:root {
+    --mainColor: #000000;
+    --secondColor: rgba(80, 80, 77, 0.5);
+    --borderRadius: 10px;
+    --boxShadow: 0 0 1rem #0d00be;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Asap Condensed', sans-serif;
+}
