@@ -10,13 +10,6 @@ export const Nosotros = () => {
                 <BtnMain text="VER PRODUCTOS"/>
             </Link>
         </main>
-/*
-        <div>
-            <div>
-
-            </div>
-        </div>*/
-
     )
 
 }

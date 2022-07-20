@@ -4,7 +4,7 @@
     margin-bottom: 2rem;
     border-radius: 10px;
     box-shadow: 1px 0 1rem #010;
-    background: var(--secondColor);
+     
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,7 +17,7 @@
         flex-direction: column;
         border: 2px solid black;
         justify-content: space-evenly;
-        background: var(--secondColor);
+        
         border-radius: 10px;
         @media (max-width: 480px) {
             padding: 2rem;
@@ -41,7 +41,6 @@
         .inputForm {
             border: 1px solid black;
             border-radius: 10px;
-            background: var(--secondColor);
             padding: .5rem;
             height: 2rem;
             font-size: 1rem;
@@ -59,7 +58,6 @@
             border: 1px solid black;
             padding: .5rem;
             border-radius: 10px;
-            background: var(--secondColor);
             height: 10rem;
             resize: none;
             margin-bottom: 1rem;
