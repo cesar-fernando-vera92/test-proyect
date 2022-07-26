@@ -3,6 +3,7 @@ import { CartContext } from "../../context/CartContext"
 import { ItemCount } from "../ItemCount/ItemCount"
 import { Link } from "react-router-dom"
 import { BtnMain } from "../BtnMain/BtnMain"
+import swal from 'sweetalert'
 
 export const ItemDetail = ({ id, img, nombre, precio, descripcion, stock }) => {
 
@@ -12,7 +13,13 @@ export const ItemDetail = ({ id, img, nombre, precio, descripcion, stock }) => {
 
     const handleAgregar = () => {
         if (cantidad === 0) 
-          return alert('carrito vacio')
+          return swal(
+            {
+            title: 'TU CARRITO ESTA VACIO',
+            text: 'agrega productos a tu carrito',
+            icon: 'warning',
+            button: 'aceptar'
+        })
         if(!isInCart(id)) {
             const addItem = {
                 id, nombre, precio, stock, cantidad, img

@@ -7,3 +7,4 @@ export const BtnMain = ({ text, fct, css }) => {
     </button>
     )
 }
+
