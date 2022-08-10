@@ -1,59 +1,74 @@
-import { useContext, useState } from "react"
-import { CartContext } from "../../context/CartContext"
-import { ItemCount } from "../ItemCount/ItemCount"
-import { Link } from "react-router-dom"
-import { BtnMain } from "../BtnMain/BtnMain"
-import swal from 'sweetalert'
+import React, { useState, useEffect, useContext } from "react";
+import ItemCount from "../ItemCount/ItemCount";
+import Item from "../Item/Item";
+import CartContext from "../../contexts/cartContext";
 
-export const ItemDetail = ({ id, img, nombre, precio, descripcion, stock }) => {
+import "./ItemDetail.scss";
+import { Button } from "@material-ui/core";
 
-    const [cantidad, setCantidad] = useState(0)
+const ItemDetail = ({ product }) => {
+  const { setCart, setQnt } = useContext(CartContext);
+  const [article, setArticle] = useState();
 
-    const { agregarAlCarrito, isInCart } = useContext(CartContext)
+  useEffect(() => {
+    setArticle(product);
+  }, [product]);
 
-    const handleAgregar = () => {
-        if (cantidad === 0) 
-          return swal(
-            {
-            title: 'TU CARRITO ESTA VACIO',
-            text: 'agrega productos a tu carrito',
-            icon: 'warning',
-            button: 'aceptar'
-        })
-        if(!isInCart(id)) {
-            const addItem = {
-                id, nombre, precio, stock, cantidad, img
-            }
-            agregarAlCarrito(addItem);
-        }
-    }
+  const style = {
+    marginBottom: "20px",
+    display: "flex",
+    alignItems: "center",
+    flexDirection: "column",
+  };
 
-    return (
-        <div className="itemDetail">
-            <div className="col">
-                <img src={img} alt={nombre} />
-            </div>
-            <div className="col">
-                <h3 className="title">{nombre}</h3>
-                <p className="desc">{descripcion}</p>
-                <p className="price">${precio}</p>
-                {
-                    isInCart(id)
-                        ? <Link to="/cart">
-                            <BtnMain text="Terminar Compra"/>
-                        </Link>
-                        :
-                        <>
-                            <ItemCount max={stock} counter={cantidad} setCounter={setCantidad} />
-                            <BtnMain
-                                text="agregar al carrito"
-                                fct={handleAgregar}
-                                disabled={cantidad === 0}
-                            />
-                        </>
-                }
-            </div>
-        </div>
-    )
-    
-}
+  const styleButtom = {
+    width: "86%",
+    marginTop: "5px",
+    backgroundColor: "blue",
+    color: "white",
+  };
+
+  const [quantity, setQuantity] = useState(1);
+
+  const handleClick = () => {
+    setQnt((value) => value + quantity);
+    article.quantity = quantity;
+
+    const prod = {
+      id: article.id,
+      name: article.name,
+      description: article.description,
+      stock: article.stock,
+      price: article.price,
+      brand: article.brand,
+      model: article.model,
+      quantity: article.quantity,
+      gender: article.gender,
+      image: article.image,
+    };
+
+    setCart((value) => [...value, prod]);
+  };
+
+  return (
+    <div style={style} className="item-detail">
+      <Item product={product} />
+      <ItemCount
+        initial={1}
+        min={0}
+        max={product.stock}
+        setQuantity={setQuantity}
+      />
+      <Button
+        variant="contained"
+        style={styleButtom}
+        onClick={handleClick}
+        className="item-detail__btn"
+      >
+        Agregar al carrito {quantity}
+      </Button>
+    </div>
+  );
+};
+
+export default ItemDetail;

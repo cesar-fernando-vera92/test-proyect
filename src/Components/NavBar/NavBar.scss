@@ -1,46 +1,38 @@
-.header {
-    width: 100%;
-    text-transform: uppercase;
-    background: var(--secondColor);
-    margin-bottom: 2rem;
-    padding: 1rem;
-    border-radius: var(--borderRadius);
-    box-shadow: var(--boxShadow);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    top: 2rem;
-    z-index: 2;
-    @media (max-width: 480px){
-        flex-direction: column;
+.navbar {
+  color: white;
+  background-color: black !important;
+
+  .navbar-brand {
+    h2 {
+      margin-left: 40px;
     }
-    .logo {
-        width: 8rem;
-        transition: all 0.2s;
-        img {
-            text-transform: uppercase;
-            width: 50%;
-        }
-        &:hover {
-            filter: drop-shadow(0 0 2rem var(--mainColor));
-        }
+
+    img {
+      width: 50px;
     }
-    .navBar {
-        display: flex;
-        justify-content: space-evenly;
-        flex-wrap: wrap;
-        @media (max-width: 480px){
-            margin: 1rem 0;
-        }
-        .headerLink {
-            margin: 0.8rem;
-            color: var(--mainColor);
-            font-size: 1.5rem;
-            text-decoration: none;
-            cursor: pointer;
-        }
-        .headerLink:hover {
-            color: rgb(255, 255, 255);
-        }
+  }
+
+  .navbar-collapse {
+    .ml-auto {
+      margin-right: 50px !important;
+
+      a {
+        font-size: 19px;
+      }
     }
+  }
+
+  .MuiBadge-badge {
+    margin: -2px;
+  }
+
+  .icon {
+    display: none;
+  }
+
+  @media only screen and (max-width: 992px) {
+    .icon {
+      display: block;
+    }
+  }
 }

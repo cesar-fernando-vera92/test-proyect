@@ -1,31 +1,45 @@
-import { configBtns } from "./configBtns"
+import React, { useState, useEffect } from "react";
+import RemoveIcon from "@material-ui/icons/Remove";
+import AddIcon from "@material-ui/icons/Add";
 
-export const ItemCount = ({ min = 0, max, counter, setCounter }) => {
+import "./ItemCount.scss";
 
-    const handleSumar = () => {
-        counter < max && setCounter(counter + 1)
-    }
+const ItemCount = ({ initial, min, max, setQuantity }) => {
+  const [counter, setCounter] = useState(initial);
 
-    const handleRestar = () => {
-        counter > min && setCounter(counter - 1)
-    }
+  const handleIncrement = () => {
+    counter < max ? setCounter(counter + 1) : console.log("Máximo alcanzado");
+  };
 
-    const { configMinus, configAdd } = configBtns(counter, max, min, handleRestar, handleSumar)
+  const handleDecrement = () => {
+    counter > min ? setCounter(counter - 1) : console.log("Mínimo alcanzado");
+  };
 
-    return (
+  useEffect(() => {
+    setQuantity(counter);
+  }, [counter, setQuantity]);
 
-        <div className="itemCount">
-            <button {...configMinus}>
-                -
-            </button>
-
-            <span>{counter}</span>
-
-            <button {...configAdd}>
-                +
-            </button>
+  return (
+    <div className="counter" style={{ width: "15rem" }}>
+      <div className="counter__content">
+        <div className="counter__content-controls">
+          <span
+            className="counter__content-controls-subtract"
+            onClick={handleDecrement}
+          >
+            <RemoveIcon />
+          </span>
+          <span className="counter__content-controls-value"> {counter} </span>
+          <span
+            className="counter__content-controls-add"
+            onClick={handleIncrement}
+          >
+            <AddIcon />
+          </span>
         </div>
+      </div>
+    </div>
+  );
+};
 
-    )
-
-}
+export default ItemCount;

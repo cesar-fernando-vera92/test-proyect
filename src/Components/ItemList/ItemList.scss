@@ -1,11 +1,40 @@
-.cardGrid {
-    width: 80%;
-    padding: 2rem;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, 15rem);
-    justify-content: flex-start;
-    gap: 2rem;
-    @media (max-width: 768px){
-        width: 100%;;
+.list-container {
+  margin: 30px auto;
+  width: 80%;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__details {
+    &-title {
+      display: flex;
+      justify-content: center;
     }
+    &-categories {
+      text-align: center;
+      padding-bottom: 60px;
+      h2 {
+        margin: 10px 0 30px 0;
+      }
+      a {
+        text-decoration: none;
+        color: 3885fa;
+        font-size: 20px;
+        margin: 0 10px;
+        transition: all 0.2s;
+
+        &:hover {
+          color: #0f284e;
+        }
+      }
+    }
+  }
+
+  &__list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
 }

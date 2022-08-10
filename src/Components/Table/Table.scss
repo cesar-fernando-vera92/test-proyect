@@ -1,0 +1,17 @@
+.table-data {
+  padding-top: 150px;
+  
+  &__title {
+      text-align: center;
+      padding-bottom: 30px;
+  }
+
+  table {
+    
+    width: 90%;
+    margin: 30px auto;
+  }.thead{
+    background: grey;
+    font-size: 30px;
+  }
+}

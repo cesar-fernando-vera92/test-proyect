@@ -1,40 +1,12 @@
-.itemDetail {
-    padding: 0 5rem;
-    background-color: var(--secondColor);
-    border-radius: var(--borderRadius);
-    box-shadow: var(--boxShadow);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex: 1;
-    margin-bottom: 2rem;
-    @media (max-width: 480px) {
-        flex-direction: column;
-        padding: 1rem;
+.item-detail {
+  .item-detail__btn:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  }
+  &__btn {
+    a {
+      color: white;
+      width: 100%;
+      text-decoration: none;
     }
-    .col {
-        margin: 1rem;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        img {
-            border-radius: 10px;
-        }
-        .title {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-        .desc {
-            text-indent: 2rem;
-            line-height: 1.5rem;
-        }
-        .price {
-            font-size: 1.5rem;
-            letter-spacing: .1rem;
-            margin: .5rem;
-        }
-        .price::first-letter {
-            color: deeppink;
-        }
-    }
+  }
 }

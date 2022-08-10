@@ -1,31 +1,52 @@
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { NavBar } from "./Components/NavBar/NavBar";
-import { ItemListContainer } from "./Components/ItemListContainer/ItemListContainer";
-import './styles/styles.scss';
-import { Nosotros } from "./Components/Nosotros/Nosotros"
-import { Contacto } from "./Components/Contacto/Contacto"
-import { ItemDetailContainer } from "./Components/ItemDetailContainer/ItemDetailContainer";
-import { CartProvider } from "./context/CartContext"
-import { Cart } from "./Components/Cart/Cart"
+import React, { useState } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.min.js";
+import CssBaseline from "@material-ui/core/CssBaseline";
+
+import Navbar from "./components/Navbar/Navbar";
+import Home from "./pages/Home/Home";
+import Cart from "./pages/Cart/Cart";
+import ItemDetailPage from "./pages/ItemDetailPage/ItemDetailPage";
+import Categories from "./pages/Categories/Categories";
+import Form from "./pages/Form/Form";
+
+import CartContext from "./contexts/cartContext";
 
 function App() {
+  const [cart, setCart] = useState([]);
+  const [qnt, setQnt] = useState(0);
 
-	return (
-		<CartProvider>
-			<BrowserRouter>
-				<NavBar />
-				<Routes>
-					<Route path="/" element={<Nosotros />} />
-					<Route path="/productos" element={<ItemListContainer />} />
-					<Route path="/productos/:categoria" element={<ItemListContainer />} />
-					<Route path="/detail/:itemId" element={<ItemDetailContainer />} />
-					<Route path="/contacto" element={<Contacto />} />
-					<Route path="*" element={<Navigate to="/" />} />
-					<Route path="/cart" element={<Cart />} />
-				</Routes>
-			</BrowserRouter>
-		</CartProvider>
-	)
+  const greeting = "RELOJERIA ONLINE";
+
+  return (
+    <div>
+      <CartContext.Provider value={{ cart, setCart, qnt, setQnt }}>
+        <Router>
+          <CssBaseline>
+            <Navbar />
+            <Switch>
+              <Route exact path="/">
+                <Home greeting={greeting} />
+              </Route>
+              <Route path="/form">
+                <Form />
+              </Route>
+              <Route path="/item/:id">
+                <ItemDetailPage />
+              </Route>
+              <Route path="/categories/:categories">
+                <Categories />
+              </Route>
+              <Route path="/cart">
+                <Cart />
+              </Route>
+            </Switch>
+          </CssBaseline>
+        </Router>
+      </CartContext.Provider>
+    </div>
+  );
 }
 
 export default App;

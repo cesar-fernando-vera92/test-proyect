@@ -1,39 +1,41 @@
-import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
-import { ItemDetail } from "../ItemDetail/ItemDetail";
-import { Loading } from "../Loading/Loading"
-import { db } from "../../firebase/config";
-import { doc, getDoc } from "firebase/firestore";
+import React, { useState, useEffect } from "react";
+import ItemDetail from "../ItemDetail/ItemDetail";
+import Loading from "../Loading/Loading";
 
-export const ItemDetailContainer = () => {
+const ItemDetailContainer = ({ product, onAdd }) => {
+  const [article, setArticle] = useState();
+  const [loading, setLoading] = useState(true);
 
-    const [loading, setLoading] = useState(false)
-    const [item, setItem] = useState(null)
+  const getProduct = () => {
+    return new Promise((res, rej) => {
+      setTimeout(() => {
+        res(product);
+      }, 1000);
+    });
+  };
 
-    const { itemId } = useParams()
+  useEffect(() => {
+    let isSubscribed = true;
+    getProduct()
+      .then((data) => {
+        if (isSubscribed) {
+          setArticle(data);
+          setLoading(false);
+        }
+      })
+      .catch(() => console.log("rejected"));
 
-    useEffect(() => {
-        setLoading(true)
-        const docRef = doc(db, "productos", itemId)
-        getDoc(docRef)
-            .then(doc => {
-                setItem({ id: doc.id, ...doc.data() })
-            })
-            .finally(() => {
-                setLoading(false)
-            })
-    }, [itemId])
+    return () => (isSubscribed = false);
+    //  eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-    return (
+  return loading ? (
+    <Loading text="Cargando..." />
+  ) : (
+    <div>
+      <ItemDetail product={article} onAdd={onAdd} />
+    </div>
+  );
+};
 
-        <>
-            {
-                loading
-                    ? <Loading />
-                    : <ItemDetail {...item} />
-            }
-        </>
-
-    )
-
-}
+export default ItemDetailContainer;

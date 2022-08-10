@@ -1,25 +1,8 @@
-.itemCount {
-    display: flex;
-    .btn-counter {
-        border: none;
-        display: inline-block;
-        transition: all .5s;
-        text-align: center;
-        font-size: 3rem;
-        padding: .2rem .8rem;
-        background: none;
-        cursor: pointer;
-    }
-    span {
-        font-size: 3rem;
-        padding: .4rem;
-        color: rgb(161, 20, 255);
-        font-weight: 700;
-        width: 3rem;
-        text-align: center;
-    }
+.counter-input {
+  width: 40px;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  text-align: center;
 }
 
-.btn-counterMin{
-    color: rgb(12, 12, 12);
-}
